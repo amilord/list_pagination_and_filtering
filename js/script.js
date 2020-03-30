@@ -1,11 +1,3 @@
-/******************************************
-Treehouse Techdegree:
-FSJS project 2 - List Filter and Pagination
-******************************************/
-   
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
 /*** 
    Add your global variables that store the DOM elements you will 
    need to reference and/or manipulate. 
@@ -20,13 +12,15 @@ FSJS project 2 - List Filter and Pagination
 const studentlistitems = document.getElementsByClassName ('student-item')
 const itemsperpage = 10;
 
+
  
 // this `showPage` function hides all of the items in each page list except for the ten that need to be shown.
 const showPage = (list, page) => { 
    let start = (page * itemsperpage) - itemsperpage;
    let end = (page * itemsperpage)-1;
 /// created a for loop for the paginagtion which will show only the items i wish to display///
-   for(i=0; i <= list.lenght; i++)
+/// changed the error  in my for loop which stated <= list.length; instead of < list.length;
+   for(i=0; i < list.lenght; i++)
    {
       //Inside the loop, display any list item with if the
       //index is greater than or equal to the start index variable and less than the end index variable.
@@ -49,10 +43,17 @@ const appendPageLinks = (list) => {
 
    const div = document.getElementsByClassName("div");
 
+   
+
+   // In your appendPageLinks function you are trying to get the div 
+   // but it doesn't exist yet. You should be creating it.
+
 
    //  Give the div element a className of pagination in order for i
    div.className = 'pagination';
 
+   // You are trying to select the ul but like the div you need 
+  //  to create it then you can append it to the div you created.
 
    //  Add a ul to the “pagination” div to store the pagination links
    const ul = document.getElementsByClassName("ul");
@@ -63,7 +64,9 @@ const appendPageLinks = (list) => {
 
 
    // Get hold of the parent div that the newly created div will be appended to
-   let parentDiv = document.querySelectorAll(".page");
+   // but I am using document.querySelector since I am just bringing back one element.
+   
+   let parentDiv = document.querySelector(".page");
    parentDiv.appendChild(div);
 
 
@@ -74,13 +77,13 @@ const appendPageLinks = (list) => {
          for(i = 1; i <= neededPages; i++){
             
    // Create <a></a> elements
-   links = document.getElementsByClassName("a");
+   links = document.createElement("a");
 
    // Create li element
-   let li = document.getElementsByClassName('li');
+   let li = document.createElement('li');
 
    // Give <a></a> elements href value of '#'
-   inks.href = '#';
+   links.href = '#';
 
     links.textContent = i;
 
@@ -92,7 +95,7 @@ const appendPageLinks = (list) => {
                   
 
    // Add event listener to <a></a> tags Add an event listener to each a tag. When they are clicked
-  // call the showPage function to display the appropriate page
+  //  call the showPage function to display the appropriate page
    links.addEventListener('click', (e)=>{
 
    const pageLinks = document.querySelectorAll('.pagination a')
@@ -100,9 +103,9 @@ const appendPageLinks = (list) => {
    for(let i =0; i < pageLinks.length; i++){
    pageLinks[i].className = ''
    }
-   let activeClass = e.target;     
+   let activeClass = event.target;     
    activeClass.className = 'active';  
-   showPage(list,e.target.textContent)
+   showPage(list,event.target.textContent)
 
    // Add the active class to the link that was just clicked. You can identify that
    // clicked link using event.target
@@ -112,6 +115,9 @@ const appendPageLinks = (list) => {
 }
 
 }
+//  calling my functions
+showPage (studentlistitems,1)
+appendPageLinks(studentlistitems)
 
 
 
