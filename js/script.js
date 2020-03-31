@@ -9,7 +9,7 @@ const showPage = (list, page) => {
 	/// created a for loop for the paginagtion which will show only the items i wish to display///
 	/// changed the error in my for loop which stated <= list.length; instead of < list.length;
 	for (i = 0; i < list.length; i++) {
-		//Inside the loop, display any list item with if the
+		//Inside the loop, I displayed any list item with if the
 		//index is greater than or equal to the start index variable and less than the end index variable.
 		if (i >= start && i <= end) {
 			list[i].style.display = "block";
@@ -26,14 +26,12 @@ const appendPageLinks = (list) => {
 
 	const div = document.createElement("div");
 
-	// In your appendPageLinks function you are trying to get the div
-	// but it doesn't exist yet. I will create this.
-
+	// Trying to get the div in my append page function
 	// Give the div element a className of pagination in order for i
 	div.className = "pagination";
 
-	// You are trying to select the ul but like the div you need
-	// to create it then you can append it to the div you created.
+	// Select the ul but like the div you need
+	// to create it then I can append it to the div I created.
 
 	// Add a ul to the “pagination” div to store the pagination links
 	const ul = document.createElement("ul");
@@ -69,7 +67,7 @@ const appendPageLinks = (list) => {
 		// li appeneds to the ul tht was created outside of the current for-loop
 		ul.appendChild(li);
 
-		// call the showPage function to display the appropriate page
+		// I called the showPage function to display the appropriate page
 		links.addEventListener("click", (e) => {
 			const pageLinks = document.querySelectorAll(
 				".pagination a"
