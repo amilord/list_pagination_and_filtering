@@ -1,4 +1,5 @@
 Hiding and showing HTML on a page, using a set of buttons that you add to the page dynamically. In other words, this is basic DOM Manipulation
+05![image](https://user-images.githubusercontent.com/60766420/115982014-e8be5600-a565-11eb-8f82-65ba10fc5259.png)
 
 The two main parts of this project that I need to complete to get a Meets Expectations grade require me to add buttons to the bottom of the page and show different sets of student information in list of 10 with the last page being 4 students when each button is clicked.
 
